@@ -1,8 +1,8 @@
 import React from 'react'
 import {render} from 'react-dom'
-import App from './moduleA'
+import moduleA from './moduleA'
 
 render(
-	<App/>,
+	<moduleA />,
 	document.getElementById('app')
 )

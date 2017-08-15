@@ -9,7 +9,7 @@ const publicPath = "./dist/";
 
 module.exports={
 	entry:{
-		'modules':'./src/components/gallery/modules/index.js',
+		'modules':'./src/components/gallery/client/client.js',
 		'maxta_ui_kit':'./src/components/gallery/js/maxta_ui_kit/maxta.js'
 	},
 	plugins:[
