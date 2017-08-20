@@ -1,5 +1,5 @@
 function getId(todos){
-	return todos.todos.reduce((maxId,todo) => {
+	return todos.reduce((maxId,todo) => {
 		return Math.max(todo.id, maxId)
 	}, -1) + 1
 }
