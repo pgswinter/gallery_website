@@ -4,7 +4,7 @@
   "description": "There is a boilderplate for Webpack React and MongoDB",
   "main": "index.js",
   "scripts": {
-    "express_serve": "node app.js",
+    "start": "nodemon --exec babel-node server.js --ignore dist/",
     "server": "webpack-dev-server --env=dev",
     "build:dev": "webpack --env=dev --progress --profile --colors --watch",
     "build:dist": "webpack --env=prod --progress --profile --colors"
@@ -19,10 +19,12 @@
     "babel-preset-stage-0": "^6.24.1",
     "chunk-manifest-webpack-plugin": "^1.1.0",
     "css-loader": "^0.28.4",
+    "ejs": "^2.5.7",
     "express": "^4.15.3",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.29.0",
     "jquery": "^3.2.1",
+    "pug": "^2.0.0-rc.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "redux-logger": "^3.0.6",
@@ -36,6 +38,7 @@
     "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-react": "^6.24.1",
     "extract-text-webpack-plugin": "^3.0.0",
     "html-webpack-pug-plugin": "^0.2.0",
