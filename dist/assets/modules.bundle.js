@@ -2125,6 +2125,90 @@ module.exports = getEventTarget;
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ "4jel":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+// function getId(products){
+// 	return products.reduce((maxId,products) => {
+// 		return Math.max(products.id, maxId)
+// 	}, -1) + 1
+// }
+
+var productReducer = function productReducer() {
+	var product = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	var action = arguments[1];
+
+	switch (action.type) {
+		case 'LINKING':
+			return {
+				patch_url: product.patch_url,
+				id: action.id
+				// return products.map((product) => {
+				// 	return product.patch_url === product.patch_url ? 
+				// 	Object.assign({}, product, {completed: !product.completed}) : product
+				// })
+				// case 'INFO_PRODUCT':
+				// 	return {
+				// 		name: products.name,
+				// 		price: products.price,
+				// 		id: action.id
+				// 	}
+				// case 'INCREASE_NUMBER':
+				// 	return {
+				// 		quantity: action.quantity,
+				// 	}
+				// case 'DECREASE_NUMBER':
+				// 	return {
+				// 		quantity: action.quantity,
+				// 	}
+			};default:
+			return product;
+	}
+};
+
+exports.default = productReducer;
+
+/***/ }),
+
+/***/ "4ufr":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+function createThunkMiddleware(extraArgument) {
+  return function (_ref) {
+    var dispatch = _ref.dispatch,
+        getState = _ref.getState;
+    return function (next) {
+      return function (action) {
+        if (typeof action === 'function') {
+          return action(dispatch, getState, extraArgument);
+        }
+
+        return next(action);
+      };
+    };
+  };
+}
+
+var thunk = createThunkMiddleware();
+thunk.withExtraArgument = createThunkMiddleware;
+
+exports['default'] = thunk;
+
+/***/ }),
+
+=======
+>>>>>>> 30002a9176d07c60109ba52bede9e6834f1022d3
 /***/ "51en":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3073,6 +3157,8 @@ module.exports = getIteratorFn;
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
 /***/ "94jC":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3102,6 +3188,7 @@ exports.default = reducer;
 
 /***/ }),
 
+>>>>>>> 30002a9176d07c60109ba52bede9e6834f1022d3
 /***/ "9SWq":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15727,6 +15814,90 @@ module.exports = ReactDOMTextarea;
 
 /***/ }),
 
+/***/ "cCw8":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _react = __webpack_require__("U7vG");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__("O27J");
+
+var _AppCart = __webpack_require__("z7GU");
+
+var _AppCart2 = _interopRequireDefault(_AppCart);
+
+var _cart_store = __webpack_require__("cKAp");
+
+var _cart_store2 = _interopRequireDefault(_cart_store);
+
+var _reactRedux = __webpack_require__("RH2O");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var initialState = {
+	product: {
+		name: 'hammer',
+		price: '$10',
+		id: 13
+	}
+};
+
+var store = (0, _cart_store2.default)(initialState);
+
+(0, _reactDom.render)(_react2.default.createElement(
+	_reactRedux.Provider,
+	{ store: store },
+	_react2.default.createElement(_AppCart2.default, null)
+), document.getElementById('app-cart'));
+
+/***/ }),
+
+/***/ "cKAp":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = configureStore;
+
+var _redux = __webpack_require__("2KeS");
+
+var _cartReducer = __webpack_require__("4jel");
+
+var _cartReducer2 = _interopRequireDefault(_cartReducer);
+
+var _reduxLogger = __webpack_require__("oSVy");
+
+var _reduxThunk = __webpack_require__("4ufr");
+
+var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// TODO: add middleware
+var finalCreateStore = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default, (0, _reduxLogger.createLogger)()))(_redux.createStore);
+
+/*** LEGACY REDUCER */
+function configureStore() {
+	var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { products: [] };
+
+	return finalCreateStore(reducer, initialState);
+}
+
+/* ADVANCE REDUCER */
+// export default function configureStore(initialState = {product: {}}){
+// 	return finalCreateStore(rootReducer, initialState)
+// }
+
+/***/ }),
+
 /***/ "cUIy":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21189,6 +21360,74 @@ module.exports = ViewportMetrics;
 
 /***/ }),
 
+/***/ "qqCb":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("U7vG");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _ProductList = __webpack_require__("rlgs");
+
+var _ProductList2 = _interopRequireDefault(_ProductList);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Cart = function (_Component) {
+	_inherits(Cart, _Component);
+
+	function Cart() {
+		_classCallCheck(this, Cart);
+
+		return _possibleConstructorReturn(this, (Cart.__proto__ || Object.getPrototypeOf(Cart)).apply(this, arguments));
+	}
+
+	_createClass(Cart, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				{ className: 'cart' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'notify-number' },
+					_react2.default.createElement('i', { className: 'fa fa-cart' })
+				),
+				_react2.default.createElement(
+					'ul',
+					null,
+					_react2.default.createElement(
+						'li',
+						null,
+						_react2.default.createElement(_ProductList2.default, null)
+					)
+				)
+			);
+		}
+	}]);
+
+	return Cart;
+}(_react.Component);
+
+exports.default = Cart;
+
+/***/ }),
+
 /***/ "r1Nz":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21789,6 +22028,65 @@ var DOMChildrenOperations = {
 
 module.exports = DOMChildrenOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("W2nU")))
+
+/***/ }),
+
+/***/ "rlgs":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("U7vG");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _ProductList = __webpack_require__("rlgs");
+
+var _ProductList2 = _interopRequireDefault(_ProductList);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProductList = function (_Component) {
+	_inherits(ProductList, _Component);
+
+	function ProductList() {
+		_classCallCheck(this, ProductList);
+
+		return _possibleConstructorReturn(this, (ProductList.__proto__ || Object.getPrototypeOf(ProductList)).apply(this, arguments));
+	}
+
+	_createClass(ProductList, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'ul',
+				null,
+				_react2.default.createElement(
+					'li',
+					null,
+					_react2.default.createElement(_ProductList2.default, null)
+				)
+			);
+		}
+	}]);
+
+	return ProductList;
+}(_react.Component);
+
+exports.default = ProductList;
 
 /***/ }),
 
@@ -24230,6 +24528,46 @@ module.exports = ReactReconciler;
 
 /***/ }),
 
+/***/ "xu7D":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var actions = {
+	linking: function linking() {
+		return {
+			type: 'LINKING',
+			id: Math.round(Math.random() * 100)
+		};
+	}
+	// createInfoProduct: function(){
+	// 	return{
+	// 		type: "INFO_PRODUCT",
+	// 		id: Math.round(Math.random() * 100)
+	// 	}
+	// },
+	// increaseNumber: function(quantity){
+	// 	return{
+	// 		type: "INCREASE_NUMBER",
+	// 		quantity: quantity + 1
+	// 	}
+	// },
+	// decreaseNumber: function(quantity){
+	// 	return{
+	// 		type: "DECREASE_NUMBER",
+	// 		quantity: quantity - 1
+	// 	}
+	// }
+};
+
+exports.default = actions;
+
+/***/ }),
+
 /***/ "y2pp":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25144,6 +25482,84 @@ exports.default = createConnect();
 
 /***/ }),
 
+/***/ "z7GU":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("U7vG");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _ProductList = __webpack_require__("rlgs");
+
+var _ProductList2 = _interopRequireDefault(_ProductList);
+
+var _reactRedux = __webpack_require__("RH2O");
+
+var _redux = __webpack_require__("2KeS");
+
+var _cart_actions = __webpack_require__("xu7D");
+
+var _cart_actions2 = _interopRequireDefault(_cart_actions);
+
+var _Cart = __webpack_require__("qqCb");
+
+var _Cart2 = _interopRequireDefault(_Cart);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AppCart = function (_Component) {
+	_inherits(AppCart, _Component);
+
+	function AppCart() {
+		_classCallCheck(this, AppCart);
+
+		return _possibleConstructorReturn(this, (AppCart.__proto__ || Object.getPrototypeOf(AppCart)).apply(this, arguments));
+	}
+
+	_createClass(AppCart, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(_ProductList2.default, null),
+				_react2.default.createElement(_Cart2.default, null)
+			);
+		}
+	}]);
+
+	return AppCart;
+}(_react.Component);
+
+function mapStateToProps(state) {
+	return state;
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: (0, _redux.bindActionCreators)(_cart_actions2.default, dispatch)
+	};
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AppCart);
+
+/***/ }),
+
 /***/ "zQ3w":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25591,5 +26007,9 @@ function symbolObservablePonyfill(root) {
 
 /***/ })
 
+<<<<<<< HEAD
+},["cCw8"]);
+=======
 },["IxWO"]);
+>>>>>>> 30002a9176d07c60109ba52bede9e6834f1022d3
 //# sourceMappingURL=modules.map

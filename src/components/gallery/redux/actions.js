@@ -53,5 +53,4 @@ let actions = {
 
 export default actions
 
-// dispatch looks like a argument to inject(injection) to each of actions at another place - example: store
 // dispatch(addTodo('some text'))
