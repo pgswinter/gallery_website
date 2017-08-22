@@ -10,8 +10,9 @@ const publicPath = "./dist/";
 module.exports={
 	entry:{
 		// 'modules':'./src/components/gallery/client/client.js',
-		'modules':'./src/components/gallery/client/cart_client.js',
-		'maxta_ui_kit':'./src/components/gallery/js/maxta_ui_kit/maxta.js'
+		// 'modules':'./src/components/gallery/client/cart_client.js',
+		// 'maxta_ui_kit':'./src/components/gallery/js/maxta_ui_kit/maxta.js'
+		'modules':'./src/components/spa/client/client.js'
 	},
 	plugins:[
 		new webpack.optimize.CommonsChunkPlugin({ // Prevent Duplication + keep latest verison when CHUNK HASH
@@ -26,7 +27,7 @@ module.exports={
 	    //   inlineManifest: false
 	    // }),
 	    new HtmlWebpackPlugin({
-			template: 'src/components/gallery/index.html',
+			template: 'src/components/spa/index.html',
 			chunksSortMode: 'dependency'
 		}),
 	 //    new HtmlWebpackPlugin({

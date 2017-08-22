@@ -2125,6 +2125,7 @@ module.exports = getEventTarget;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "4jel":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2206,6 +2207,8 @@ exports['default'] = thunk;
 
 /***/ }),
 
+=======
+>>>>>>> 30002a9176d07c60109ba52bede9e6834f1022d3
 /***/ "51en":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3154,6 +3157,38 @@ module.exports = getIteratorFn;
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "94jC":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var reducer = function reducer(state, action) {
+	switch (action.type) {
+		case 'RENDER_TEXT':
+			return Object.assign({}, state, {
+				todos: [{
+					text: action.text,
+					completed: false
+				}].concat(_toConsumableArray(state.todos))
+			});
+		default:
+			return state;
+	}
+};
+exports.default = reducer;
+
+/***/ }),
+
+>>>>>>> 30002a9176d07c60109ba52bede9e6834f1022d3
 /***/ "9SWq":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7541,6 +7576,48 @@ module.exports = PooledClass;
 
 /***/ }),
 
+/***/ "IxWO":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _react = __webpack_require__("U7vG");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__("O27J");
+
+var _App = __webpack_require__("JyrS");
+
+var _App2 = _interopRequireDefault(_App);
+
+var _store = __webpack_require__("hDKS");
+
+var _store2 = _interopRequireDefault(_store);
+
+var _reactRedux = __webpack_require__("RH2O");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var initialState = {
+	todos: [{
+		id: 0,
+		completed: false,
+		text: 'Hello World'
+	}]
+};
+
+var store = (0, _store2.default)(initialState);
+
+(0, _reactDom.render)(_react2.default.createElement(
+	_reactRedux.Provider,
+	{ store: store },
+	_react2.default.createElement(_App2.default, null)
+), document.getElementById('app'));
+
+/***/ }),
+
 /***/ "J/I/":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8292,6 +8369,90 @@ module.exports = function (isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("W2nU")))
+
+/***/ }),
+
+/***/ "JyrS":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("U7vG");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__("RH2O");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var App = function (_Component) {
+	_inherits(App, _Component);
+
+	function App(props, context) {
+		_classCallCheck(this, App);
+
+		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props, context));
+
+		_this.state = {
+			inputText: 'App here'
+		};
+		return _this;
+	}
+
+	_createClass(App, [{
+		key: 'renderText',
+		value: function renderText() {
+			console.log('prepare loading ...');
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'p',
+					null,
+					'state was initial from App: ',
+					this.state.inputText
+				),
+				_react2.default.createElement(
+					'p',
+					null,
+					'state will be changed. Data get from a Object at Client. Process at Store. Connect by Dispatch. Solution will be process at Actions. Result: ',
+					this.props.todos.map(function (todo) {
+						return _react2.default.createElement(
+							'span',
+							{ key: todo.id },
+							todo.text
+						);
+					})
+				)
+			);
+		}
+	}]);
+
+	return App;
+}(_react.Component);
+
+function mapStateToProps(state) {
+	return state;
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(App);
 
 /***/ }),
 
@@ -17578,6 +17739,37 @@ module.exports = ReactPropTypesSecret;
 
 /***/ }),
 
+/***/ "hDKS":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = configureStore;
+
+var _redux = __webpack_require__("2KeS");
+
+var _reducer = __webpack_require__("94jC");
+
+var _reducer2 = _interopRequireDefault(_reducer);
+
+var _reduxLogger = __webpack_require__("oSVy");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var finalCreateStore = (0, _redux.compose)((0, _redux.applyMiddleware)((0, _reduxLogger.createLogger)()))(_redux.createStore);
+
+function configureStore() {
+	var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { todos: [] };
+
+	return (0, _redux.createStore)(_reducer2.default, initialState);
+}
+
+/***/ }),
+
 /***/ "hMln":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17733,12 +17925,12 @@ var KNOWN_STATICS = {
     arity: true
 };
 
+var defineProperty = Object.defineProperty;
+var getOwnPropertyNames = Object.getOwnPropertyNames;
 var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 var getPrototypeOf = Object.getPrototypeOf;
 var objectPrototype = getPrototypeOf && getPrototypeOf(Object);
-var getOwnPropertyNames = Object.getOwnPropertyNames;
 
 module.exports = function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
     if (typeof sourceComponent !== 'string') {
@@ -17760,13 +17952,11 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
         for (var i = 0; i < keys.length; ++i) {
             var key = keys[i];
             if (!REACT_STATICS[key] && !KNOWN_STATICS[key] && (!blacklist || !blacklist[key])) {
-                // Only hoist enumerables and non-enumerable functions
-                if (propIsEnumerable.call(sourceComponent, key) || typeof sourceComponent[key] === 'function') {
-                    try {
-                        // Avoid failures from read-only properties
-                        targetComponent[key] = sourceComponent[key];
-                    } catch (e) {}
-                }
+                var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
+                try {
+                    // Avoid failures from read-only properties
+                    defineProperty(targetComponent, key, descriptor);
+                } catch (e) {}
             }
         }
 
@@ -25817,5 +26007,9 @@ function symbolObservablePonyfill(root) {
 
 /***/ })
 
+<<<<<<< HEAD
 },["cCw8"]);
+=======
+},["IxWO"]);
+>>>>>>> 30002a9176d07c60109ba52bede9e6834f1022d3
 //# sourceMappingURL=modules.map
