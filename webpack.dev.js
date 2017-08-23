@@ -12,7 +12,8 @@ module.exports = Merge(CommonConfig, {
  //        'webpack-dev-server/client?http://localhost:6969'
  //    ],
 	output:{
-		path: path.join(__dirname,'./dist/assets'), // Set URL store from local folder
+		// path: path.join(__dirname,'./dist/assets'), // Set URL store from local folder
+		path: path.join(__dirname,'./views'), // Set URL store from local folder
 		filename: '[name].bundle.js',
 		publicPath: publicPath, // Permisson access at URL
 		sourceMapFilename: '[name].map'
